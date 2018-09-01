@@ -42,6 +42,5 @@ function loadTileSet(api, params, zoom, proxy) {
     return Promise.all(tasks);
 }
 
-module.exports.getTile = getTile;
 module.exports.getTilesParam = getTilesParam;
 module.exports.loadTileSet = loadTileSet;

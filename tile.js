@@ -23,18 +23,6 @@ function getCenterTile(lon, lat, zoom, tsize) {
     return [Math.floor(xf), Math.floor(yf), i, j];
 }
 
-function test() {
-    var psize = 640, tsize = 256;
-    var lat = 34.687291, lon = 112.429898; // Luoyang Station
-    var centerTile = getCenterTile(lon, lat, 20, tsize);
-    console.log(centerTile);
-    var pr = pixelRange(centerTile[2], centerTile[3], psize, tsize);
-    console.log(pr.xdelta + ', ' + pr.ydelta);
-    console.log(pr.bbox);
-}
-
-//test();
-
 module.exports.getCenterTile = getCenterTile;
 module.exports.pixelRange = pixelRange;
 
@@ -78,10 +66,8 @@ function cropConcatImage(canvas, istart, jstart, psize) {
 }
 
 function procTileSet(tiles, targetInfo, tileInfo, psize, tsize) {
-    // var hsize = 0.5 * psize;
     return cropConcatImage(
         concatTileSet(tiles, targetInfo, tsize?tsize:256),
-        // tileInfo[2] - hsize, tileInfo[3] - hsize, psize
         targetInfo.bbox[0], targetInfo.bbox[1], psize
     );
 }
