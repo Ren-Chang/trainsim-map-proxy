@@ -1,0 +1,16 @@
+{
+  "name": "trainsim-map-proxy",
+  "version": "0.0.1",
+  "description": "A local proxy to serve free map overlays for Train Simulator, to avoid using default Google Maps Static API that requires billing information.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cartoren",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "images": "^3.0.1",
+    "request": "^2.88.0"
+  }
+}
