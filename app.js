@@ -1,13 +1,10 @@
+var stream = require('stream');
 var express = require('express');
 var request = require('request');
-var stream = require('stream');
 var tile = require('./tile.js');
 var xhr = require('./xhr.js');
 
 var app = express();
-// app.use(express.bodyParser());
-
-//var proxy = new httpProxy.RoutingProxy();
 
 app.get('/maps/api/staticmap', function(req, res) {
     var gsat = 'https://mt1.google.com/vt/lyrs=s&';
@@ -37,8 +34,8 @@ app.get('/maps/api/staticmap', function(req, res) {
                 restream.end(result);
                 restream.pipe(res);
                 //res.end();
-            }).catch((err)=>{onError(err, res, 'Error - Send result ')});
-    }).catch((err)=>{onError(err, res, 'Error - Process tiles')});
+            }).catch(err=>{onError(err, res, 'Error - Send result ');});
+    }).catch(err=>{onError(err, res, 'Error - Process tiles');});
 });
 
 app.get('/pac.txt', function(req, res) {
